@@ -1,0 +1,64 @@
+---
+title: "19523146"
+output: html_notebook
+---
+#Rusydi Nurdin - 19523146
+
+```{r}
+library(ISLR)
+library(lsr)
+
+dataCredit <- Credit
+head(dataCredit)
+```
+
+#1. Compute the mean and the median of Rating, Cards, and Age
+```{r}
+mean(dataCredit$Rating)
+mean(dataCredit$Cards)
+mean(dataCredit$Age)
+```
+
+
+#2. Compute the mode of Gender, Student, and Married
+```{r}
+modeOf(dataCredit$Gender)
+modeOf(dataCredit$Student)
+modseOf(dataCredit$Married)
+```
+
+#3. Compute the sample 10, 37, and 91 percentiles of Education
+```{r}
+quantile(x = dataCredit$Education, probs = 0.1)
+quantile(x = dataCredit$Education, probs = 0.37)
+quantile(x = dataCredit$Education, probs = 0.91)
+```
+
+#4. Compute the quartiles of Balance and its corresponding boxplot
+```{r}
+quantile(x = dataCredit$Balance, probs = c(0.25, 0.50, 0.75))
+boxplot(dataCredit$Balance)
+boxplot(dataCredit$Balance, horizontal = TRUE)
+
+
+```
+
+#5. Compute the correlation and the scatter plot between pairs of Limit and Rating, Age and Card, Income and Education
+```{r}
+#a
+newData <- data.frame(limit = dataCredit$Limit, rating = dataCredit$Rating )
+cor(newData)
+plot(newData$limit, newData$rating)
+
+
+#b
+newData1 <- data.frame(age = dataCredit$Age, card = dataCredit$Cards )
+cor(newData1)
+plot(newData1$age, newData1$card)
+
+#c
+newData2 <- data.frame(income = dataCredit$Income, education = dataCredit$Education )
+cor(newData2)
+plot(newData2$income, newData2$education)
+```
+
